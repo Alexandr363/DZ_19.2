@@ -1,0 +1,70 @@
+[
+  {
+    "model": "catalog.category",
+    "pk": 3,
+    "fields": {
+      "name": "Телефоны",
+      "description": "iphone"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 4,
+    "fields": {
+      "name": "Телевизоры",
+      "description": "sony"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 3,
+    "fields": {
+      "name": "телефон 1",
+      "description": "белый",
+      "image": "",
+      "category": 3,
+      "cost": 1,
+      "date_at": "2023-11-21T19:42:27Z",
+      "date_last_change": "2023-11-21T19:42:30Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 4,
+    "fields": {
+      "name": "телефон2",
+      "description": "чёрный",
+      "image": "",
+      "category": 3,
+      "cost": 2,
+      "date_at": "2023-11-21T19:43:15Z",
+      "date_last_change": "2023-11-21T19:43:17Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 5,
+    "fields": {
+      "name": "телевизор 1",
+      "description": "большой",
+      "image": "",
+      "category": 4,
+      "cost": 3,
+      "date_at": "2023-11-21T19:43:38Z",
+      "date_last_change": "2023-11-21T19:43:42Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 6,
+    "fields": {
+      "name": "телевизор 2",
+      "description": "большой",
+      "image": "",
+      "category": 4,
+      "cost": 6,
+      "date_at": "2023-11-21T19:44:07Z",
+      "date_last_change": "2023-11-21T19:44:09Z"
+    }
+  }
+]

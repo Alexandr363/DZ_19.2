@@ -9,6 +9,9 @@ packages = [{include = "dz_19"}]
 [tool.poetry.dependencies]
 python = "^3.12"
 django = "^4.2.7"
+pillow = "^10.1.0"
+psycopg2-binary = "^2.9.9"
+ipython = "^8.17.2"
 
 
 [tool.poetry.group.dev.dependencies]
