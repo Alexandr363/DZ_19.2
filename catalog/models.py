@@ -4,8 +4,6 @@ from django.db import models
 class Category(models.Model):
     name = models.CharField(max_length=50, verbose_name='наименование')
     description = models.TextField(verbose_name='описание')
-    created_at = models.CharField(max_length=50, verbose_name='товар',
-                                  null=True, blank=True)
 
     def __str__(self):
         return f'{self.name}'
@@ -25,6 +23,10 @@ class Product(models.Model):
     date_at = models.DateTimeField(verbose_name='дата создания')
     date_last_change = models.DateTimeField(verbose_name='дата последнего '
                                                          'изменения')
+
+    @property
+    def description_100(self):
+        return self.description[:100]
 
     def __str__(self):
         return f'{self.name}'
