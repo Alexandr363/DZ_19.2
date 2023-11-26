@@ -22,22 +22,18 @@
             <div class="card mb-4 box-shadow">
                 <div class="card-body">
                     <table class="table table-striped">
-                        {% for object in object_list %}
                         <div class="card" style="width: 18rem;">
-<!--                            <img src="/media/{{ object.image}}">-->
-                                <img src="{{ object.image|media_path }}">
+                                <img src="{{ object.image|mediapath }}">
                             <div class="card-body">
                                 <h5 class="card-title">{{ title }}</h5>
-                                <p class="card-text">Название товара: {{ object.name }}</p>
-                                <p class="card-text">Описание товара: {{ object.description }}</p>
-                                <p class="card-text">Категория товара: {{ object.category }}</p>
-                                <p class="card-text">Стоимость товара: {{ object.cost }}</p>
-                                <p class="card-text">Дата создания: {{ object.date_at }}</p>
-                                <p class="card-text">Дата изменения: {{ object.date_last_change }}</p>
-                                <a href="#" class="btn btn-primary">Посмотреть товар</a>
+                                <p class="card-text">Название товара: {{ product.name }}</p>
+                                <p class="card-text">Описание товара: {{ product.description }}</p>
+                                <p class="card-text">Категория товара: {{ product.category }}</p>
+                                <p class="card-text">Стоимость товара: {{ product.cost }}</p>
+                                <p class="card-text">Дата создания: {{ product.date_at }}</p>
+                                <p class="card-text">Дата изменения: {{ product.date_last_change }}</p>
                             </div>
                         </div>
-                        {% endfor %}
                     </table>
                 </div>
             </div>
