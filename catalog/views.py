@@ -27,6 +27,6 @@ def home(request):
 def product_details(request, pk):
     product = get_object_or_404(Product, pk=pk)
     context = {
-        'object_list': product
+        'product': product
     }
     return render(request, 'main/product.html', context)
