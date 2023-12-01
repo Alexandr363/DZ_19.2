@@ -7,7 +7,7 @@ from catalog.views import ContactsTemplateView, HomeListView, \
 app_name = CatalogConfig.name
 
 urlpatterns = [
-    path('', HomeListView.as_view(), name='home'),
+    path('', HomeListView.as_view(), name='HomeListView'),
 
     path('contacts/', ContactsTemplateView.as_view(),
          name='ContactTemplateView'),
