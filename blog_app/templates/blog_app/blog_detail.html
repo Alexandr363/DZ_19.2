@@ -14,6 +14,7 @@
                         <tr>
                             <td>Заголовок</td>
                             <td>{{ object.title }}</td>
+                            <td>{{ object.slug }}</td>
                         </tr>
                         <tr>
                             <td>Содержимое</td>
@@ -26,6 +27,7 @@
                     </table>
                 </div>
                 <div class="card-footer"></div>
+                Просмотры: {{ object.view_count }}
             </div>
         </div>
         <div class="col-6">
