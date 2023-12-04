@@ -8,8 +8,13 @@
                     <form method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                         {{ form.as_p }}
+                        {% if object %}
+                        <button type="submit" class="btn btn-primary">Изменить
+                        </button>
+                        {% else %}
                         <button type="submit" class="btn btn-primary">Создать
                         </button>
+                        {% endif %}
                     </form>
                 </div>
             </div>
