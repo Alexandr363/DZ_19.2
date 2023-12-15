@@ -1,0 +1,25 @@
+{% extends 'catalog/base.html' %}
+
+{% block content %}
+
+<div class="col-12">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        <p>Хотите удалить продукт "{{ object.name }}" ?</p>
+                        <button type="submit" class="btn btn-da">
+                            Подтвердить
+                        </button>
+                        <a href="{% url 'catalog:HomeListView' %}"
+                           class="btn btn-warning">Отмена</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

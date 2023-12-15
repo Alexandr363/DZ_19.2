@@ -4,21 +4,44 @@
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
     <h1 class="display-4">{{ title }}</h1>
 </div>
+
 <div class="container">
     <div class="row text-center">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col-12 mb-3">
+            <a class="btn btn-outline-primary"
+               href="{% url 'catalog:ProductCreateView' %}">
+                Добавить продукт </a>
+        </div>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-2">
             {% for object in object_list %}
             <div class="col">
                 <div class="card shadow-sm">
                     <div class="card-body">
-                        <p class="card-text">{{ object.name }}</p>
+                        <p class="card-text">
+                            {{ object.name }}
+                        <p>
+                            {% for version in object.version_set.all %}
+                                {% if version.is_active %}
+                                    <p> Номер версии - {{ version.number }} </p>
+                                    Название версии - {{ version.name }}
+                                {% endif %}
+                            {% endfor %}
+                        </p>
                         <p class="card-text">
                             {{ object.description|truncatechars:100 }}</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
                                 <a class="btn btn-sm btn-outline-secondary"
-                                   href="{% url 'catalog:ProductDetailDetailView' object.pk %}">
+                                   href="{% url 'catalog:ProductDetailView' object.pk %}">
                                     Посмотреть
+                                </a>
+                                <a class="btn btn-sm btn-outline-secondary"
+                                   href="{% url 'catalog:ProductUpdateView' object.pk %}">
+                                    Изменить
+                                </a>
+                                <a class="btn btn-sm btn-outline-secondary"
+                                   href="{% url 'catalog:ProductDeleteView' object.pk %}">
+                                    Удалить
                                 </a>
                             </div>
                         </div>
