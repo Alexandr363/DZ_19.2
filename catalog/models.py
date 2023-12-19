@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 
 
@@ -23,6 +24,9 @@ class Product(models.Model):
     date_at = models.DateTimeField(verbose_name='дата создания')
     date_last_change = models.DateTimeField(verbose_name='дата последнего '
                                                          'изменения')
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL,
+                              on_delete=models.SET_NULL, null=True, blank=True,
+                              verbose_name='пользователь')
 
     def __str__(self):
         return self.name
