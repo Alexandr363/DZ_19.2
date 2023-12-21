@@ -1,4 +1,5 @@
 from django import forms
+from django.conf import settings
 
 from catalog.models import Product, Version
 
@@ -26,8 +27,7 @@ class ProductForm(StyleFormMixin, forms.ModelForm):
     def clean_name(self):
         cleaned_data = self.cleaned_data['name']
 
-        if cleaned_data in ['казино', 'криптовалюта', 'крипта', 'биржа',
-                            'дешево', 'бесплатно', 'обман', 'полиция', 'радар']:
+        if cleaned_data in settings.WORDS:
             raise forms.ValidationError('Название содержит запрещённые слова')
 
         return cleaned_data
@@ -35,8 +35,7 @@ class ProductForm(StyleFormMixin, forms.ModelForm):
     def clean_description(self):
         cleaned_data = self.cleaned_data['description']
 
-        if cleaned_data in ['казино', 'криптовалюта', 'крипта', 'биржа',
-                            'дешево', 'бесплатно', 'обман', 'полиция', 'радар']:
+        if cleaned_data in settings.WORDS:
             raise forms.ValidationError('Описание содержит запрещённые слова')
 
         return cleaned_data
