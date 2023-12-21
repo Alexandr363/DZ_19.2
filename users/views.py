@@ -1,4 +1,4 @@
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView, UpdateView
 
@@ -13,9 +13,19 @@ class RegisterView(CreateView):
     success_url = reverse_lazy('users:login')
 
     def form_valid(self, form):
+        form.verified_password = new_password
         new_user = form.save()
+        new_user.verified_password = new_password
         send_reg_email(new_user)
         return super().form_valid(form)
+
+
+def ver_view(request):
+    code = int(request.GET.get('code'))
+    user = User.objects.get(verified_password=code)
+    user.verified = True
+    user.save()
+    return render(request, 'user/verified.html')
 
 
 class UserUpdateView(UpdateView):
