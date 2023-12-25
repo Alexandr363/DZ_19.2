@@ -28,12 +28,22 @@ class Product(models.Model):
                               on_delete=models.SET_NULL, null=True, blank=True,
                               verbose_name='пользователь')
 
+    is_published = models.BooleanField(default=True,
+                                       verbose_name='публикация активна')
+
     def __str__(self):
         return self.name
 
     class Meta:
         verbose_name = 'продукт'
         verbose_name_plural = 'продукты'
+
+        permissions = [
+            (
+                "set_published_status",
+                "Can publish product"
+            )
+        ]
 
 
 class Version(models.Model):
